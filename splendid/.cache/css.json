@@ -1,0 +1,9 @@
+{
+  "splendid://css/npm-badge.css": {
+    "mtime": "2019-11-17 21:31:01",
+    "renameMap": {
+      "name": "a",
+      "version": "b"
+    }
+  }
+}
