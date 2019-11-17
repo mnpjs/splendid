@@ -1,0 +1,35 @@
+{
+  "name": "@mnpjs/s",
+  "version": "0.0.0",
+  "description": "Splendid Template.",
+  "scripts": {
+    "t": "zoroaster -a",
+    "test": "yarn t test/spec test/mask",
+    "start": "splendid-dev",
+    "dev": "splendid-dev -s",
+    "doc": "NODE_DEBUG=doc doc documentary -o README.md",
+    "splendid": "splendid",
+    "web": "splendid -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mnpjs/s.git"
+  },
+  "keywords": [
+    "s",
+    "mnpjs"
+  ],
+  "author": "Anton <anton@adc.sh>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mnpjs/s/issues"
+  },
+  "homepage": "https://github.com/mnpjs/s#readme",
+  "devDependencies": {
+    "alamode": "^2.2.0",
+    "documentary": "^1.27.2",
+    "preact": "8.4.2",
+    "splendid": "^1.6.0",
+    "zoroaster": "^4.1.1-alpha"
+  }
+}
