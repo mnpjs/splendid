@@ -4,14 +4,11 @@ const config = {
   replacements: [
     {
       re: /{{ company }}/g,
-      replacement: '[Splendid](https://www.splendid.page)',
+      replacement: '[{{ org }}]({{ url }})',
     },
   ],
-  // output: 'docs',
-  // appDir: 'splendid',
-
-  // to generate sitemaps, use either folder or domain website.
-  url: 'https://www.splendid.page',
+  // for sitemap and social-buttons
+  url: '{{ url }}',
 }
 
 export default config

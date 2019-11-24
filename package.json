@@ -1,30 +1,29 @@
 {
-  "name": "@mnpjs/s",
+  "name": "my-new-package",
   "version": "0.0.0",
-  "description": "Splendid Template.",
+  "description": "{{ description }}",
   "scripts": {
     "t": "zoroaster -a",
     "test": "yarn t test/spec test/mask",
-    "start": "splendid-dev",
-    "dev": "splendid-dev -s",
-    "doc": "NODE_DEBUG=doc doc documentary -o README.md",
+    "doc": "NODE_DEBUG=doc doc -o README.md",
     "splendid": "splendid",
-    "web": "splendid -s"
+    "s": "splendid",
+    "d": "splendid -e dev"
   },
+  "files": [],
   "repository": {
     "type": "git",
-    "url": "git://github.com/mnpjs/s.git"
+    "url": "{{ git_url }}"
   },
   "keywords": [
-    "s",
-    "mnpjs"
+    "{{ keywords }}"
   ],
-  "author": "Anton <anton@adc.sh>",
+  "author": "{{ author_name }} <{{ author_email }}>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mnpjs/s/issues"
+    "url": "{{ issues_url }}"
   },
-  "homepage": "https://github.com/mnpjs/s#readme",
+  "homepage": "{{ url }}",
   "devDependencies": {
     "alamode": "^3.2.0",
     "documentary": "^1.34.1",
