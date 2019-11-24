@@ -4,11 +4,11 @@ const config = {
   replacements: [
     {
       re: /{{ company }}/g,
-      replacement: '[{{ org }}]({{ url }})',
+      replacement: '[{{ org }}]({{ website }})',
     },
   ],
   // for sitemap and social-buttons
-  url: '{{ url }}',
+  url: '{{ URL }}',
 }
 
 export default config
