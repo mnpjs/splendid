@@ -7,8 +7,8 @@
     "test": "yarn t test/spec test/mask",
     "doc": "NODE_DEBUG=doc doc -o README.md",
     "splendid": "splendid",
-    "s": "splendid",
-    "d": "splendid -e dev"
+    "s": "splendid -s",
+    "d": "splendid -s -e dev"
   },
   "files": [],
   "repository": {

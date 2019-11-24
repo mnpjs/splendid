@@ -13,11 +13,10 @@ const io = makeIo()
 /** @type {!Array<!preact.PreactProps>} */
 const meta = [{
   key: 'social-buttons',
-  id: 'c33ba',
+  id: 'cce8d',
   props: {
-    url: 'https://www.splendid.page/',
-    subject: 'Main Page',
-    title: 'The 150-160 characters search engine meta:description',
+    url: '{{ URL }}/',
+    meta: 'true',
   },
 }]
 meta.forEach(({ key, id, props = {}, children = [] }) => {
