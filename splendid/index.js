@@ -4,7 +4,7 @@ const config = {
   replacements: [
     {
       re: /{{ company }}/g,
-      replacement: '[{{ org }}]({{ website }})',
+      replacement: '[{{ trademark }}]({{ website }})',
     },
   ],
   // for sitemap and social-buttons

@@ -1,6 +1,8 @@
-# {{ URL }}
+# {{ my-new-package }}
 
 {{ description }}
+
+A new website made with [Splendid](https://www.npmjs.com/package/splendid): {{ URL }}.
 
 ## Copyright
 
