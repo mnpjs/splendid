@@ -6,13 +6,14 @@
     <main role="main" class="flex-shrink-0">
       <container>
         <row>
-          <column md-3>
+          <column md-3 class="left-column">
             <div class="logo">
               <img src="img/logo.jpg" alt="{{ full-name }} logo">
             </div>
             <div class="badges">
               <github-badge name="my-new-package" org="{{ org }}" />
-              <npm-badge package="my-new-package">_MyNewPackage_</npm-badge>
+              <!-- uncomment when published -->
+              <!-- <npm-badge package="my-new-package">_MyNewPackage_</npm-badge> -->
             </div>
 
             ### Pages
@@ -21,7 +22,7 @@
 
             <social-buttons meta />
           </column>
-          <column md-9 id="Content">
+          <column class="right-column" md-9 id="Content">
             {{ content }}
           </column>
         </row>
