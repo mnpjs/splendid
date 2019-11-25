@@ -1,4 +1,4 @@
-# {{ my-new-package }}
+# my-new-package
 
 {{ description }}
 
