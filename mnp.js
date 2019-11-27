@@ -10,16 +10,15 @@ export default {
       getDefault() {
         return 'AGPL'
       },
-      afterQuestions({ removeFile, renameFile, warn }, license) {
-        if (license == 'MIT') {
-          removeFile('LICENSE-AGPL')
-          renameFile('LICENSE-MIT', 'LICENSE')
-        } else if (license == 'AGPL') {
-          removeFile('LICENSE-MIT')
-          renameFile('LICENSE-AGPL', 'LICENSE')
-        } else {
+      afterQuestions({ removeFiles, renameFile, warn, addFile }, license) {
+        const supported = ['MIT', 'AGPL']
+        if (!supported.includes(license)) {
           warn(`Unknown license ${license}`)
+          return
         }
+        renameFile(`LICENSE-${license}`, 'LICENSE')
+        addFile('LICENSE')
+        removeFiles(/LICENSE-.+$/)
       },
     },
     'Keep help': {
