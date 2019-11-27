@@ -27,13 +27,13 @@ export default {
             re: /<!-- help: /gm,
             replacement: '<!-- ',
           },
-        ])
+        ], ['html', 'md'])
         else await updateFiles([
           {
             re: /^ *<!-- help: [\s\S]+? -->\s*/gm,
             replacement: '',
           },
-        ])
+        ], ['html', 'md'])
         removeFiles(/splendid\/.*?\/README\.md$/)
       },
     },
