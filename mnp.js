@@ -6,10 +6,12 @@ export default {
     'URL'({ org, name }) {
       return `https://${org}.github.io/${name}/`
     },
-    'License (MIT/AGPL)': {
+    'license': {
+      text: 'License (MIT/AGPL)',
       getDefault() {
         return 'AGPL'
       },
+      // https://spdx.org/licenses/
       afterQuestions({ removeFiles, renameFile, warn }, license) {
         const supported = ['MIT', 'AGPL']
         if (!supported.includes(license)) {
@@ -18,6 +20,8 @@ export default {
         }
         renameFile(`LICENSE-${license}`, 'LICENSE')
         removeFiles(/LICENSE-.+$/)
+        if (license == 'AGPL') return 'AGPL-3.0-or-later'
+        return 'MIT'
       },
     },
     'Keep help': {
@@ -47,7 +51,7 @@ export default {
       },
     },
   },
-  async afterInit({ manager }, { spawn, warn, updateFiles, removeFile }) {
+  async afterInit({ manager, org, name, URL }, { spawn, warn, updateFiles, removeFile, github }) {
     if (manager == 'yarn') {
       await spawn('yarn')
     } else {
@@ -68,6 +72,9 @@ export default {
       },
     }, { extensions: ['html', 'css'] })
     removeFile('fonts.json')
+    await github.repos.edit(org, name, {
+      homepage: URL,
+    })
   },
   files: {
     filenames(fn) {
