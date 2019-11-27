@@ -1,3 +1,6 @@
+import fonts from './fonts'
+const font = fonts[Math.floor(Math.random() * fonts.length)]
+
 export default {
   questions: {
     'URL'({ org, name }) {
@@ -30,7 +33,7 @@ export default {
               return '<!-- '
             },
           },
-        ], ['html', 'md'])
+        ], { extensions: ['html', 'md'] })
         else {
           await updateFiles([
             {
@@ -40,17 +43,31 @@ export default {
                 return ''
               },
             },
-          ], ['html', 'md'])
+          ], { extensions: ['html', 'md'] })
           removeFiles(/splendid\/.*?\/README\.md$/)
         }
       },
     },
   },
-  async afterInit({ manager }, { spawn, warn }) {
+  async afterInit({ manager }, { spawn, warn, updateFiles }) {
     if (manager == 'yarn') {
       await spawn('yarn')
     } else {
       warn('You should run npm install in the new repository.')
     }
+    await updateFiles({
+      re: /# start template[\s\S]+?#end template(\n|$)/,
+      replacement() {
+        this.debug('Fixing .gitignore %s', this.path)
+        return ''
+      },
+    }, { file: '.gitignore' })
+    await updateFiles({
+      re: /{{ font }}/g,
+      replacement() {
+        this.debug('Setting font in %s', this.path)
+        return font
+      },
+    }, { file: '.gitignore' })
   },
 }

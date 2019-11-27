@@ -60,3 +60,10 @@ typings/
 # next.js build output
 .next
 splendid/.cache
+# start template
+docs
+splendid/potrace/*
+splendid/css/*
+!splendid/potrace/README.md
+!splendid/css/README.md
+# end template

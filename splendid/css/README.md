@@ -38,3 +38,18 @@ For example, because the adoption of hyphens is quite low
 to include those prefixes in the main CSS. Otherwise, the
 whole prefixes file would have to be downloaded just because
 of hyphens.
+
+## Bootstrap Drop
+
+When using Bootstrap with the `drop` attribute, a list of
+selectors on the page will be gathered to remove unused
+selectors from the Bootstrap CSS. The result is saved in
+the `bootstrap-drop.css` file so that it can be seen what
+selectors are used.
+
+## Components CSS
+
+The CSS from components will also be generated in here.
+Such CSS files are minified, and their classes are renamed.
+See more about using stylesheets from components in the
+elements' README.

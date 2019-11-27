@@ -9,6 +9,7 @@ const config = {
   ],
   // for sitemap and social-buttons
   url: '{{ URL }}',
+  // which prefixes to keep in the main CSS
   prefixes: ['-webkit-hyphens', '-ms-hyphens'],
 }
 
