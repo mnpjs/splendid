@@ -49,7 +49,7 @@ export default {
       },
     },
   },
-  async afterInit({ manager }, { spawn, warn, updateFiles }) {
+  async afterInit({ manager }, { spawn, warn, updateFiles, removeFile }) {
     if (manager == 'yarn') {
       await spawn('yarn')
     } else {
@@ -69,5 +69,6 @@ export default {
         return font
       },
     }, { extensions: ['html', 'css'] })
+    removeFile('fonts.json')
   },
 }
