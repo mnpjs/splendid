@@ -25,16 +25,24 @@ export default {
         if (keep) await updateFiles([
           {
             re: /<!-- help: /gm,
-            replacement: '<!-- ',
+            replacement() {
+              this.debug('Updating help in %s', this.path)
+              return '<!-- '
+            },
           },
         ], ['html', 'md'])
-        else await updateFiles([
-          {
-            re: /^ *<!-- help: [\s\S]+? -->\s*/gm,
-            replacement: '',
-          },
-        ], ['html', 'md'])
-        removeFiles(/splendid\/.*?\/README\.md$/)
+        else {
+          await updateFiles([
+            {
+              re: /^ *<!-- help: [\s\S]+? -->\s*/gm,
+              replacement() {
+                this.debug('Removing help from %s', this.path)
+                return ''
+              },
+            },
+          ], ['html', 'md'])
+          removeFiles(/splendid\/.*?\/README\.md$/)
+        }
       },
     },
   },
