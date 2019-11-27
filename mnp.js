@@ -10,14 +10,13 @@ export default {
       getDefault() {
         return 'AGPL'
       },
-      afterQuestions({ removeFiles, renameFile, warn, addFile }, license) {
+      afterQuestions({ removeFiles, renameFile, warn }, license) {
         const supported = ['MIT', 'AGPL']
         if (!supported.includes(license)) {
           warn(`Unknown license ${license}`)
           return
         }
         renameFile(`LICENSE-${license}`, 'LICENSE')
-        addFile('LICENSE')
         removeFiles(/LICENSE-.+$/)
       },
     },
@@ -69,5 +68,10 @@ export default {
       },
     }, { extensions: ['html', 'css'] })
     removeFile('fonts.json')
+  },
+  files: {
+    filenames(fn) {
+      return [...fn, /LICENSE-.+$/]
+    },
   },
 }
