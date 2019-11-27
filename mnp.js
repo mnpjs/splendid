@@ -7,7 +7,7 @@ export default {
       getDefault() {
         return 'AGPL'
       },
-      afterQuestions({ removeFile, renameFile, warning }, license) {
+      afterQuestions({ removeFile, renameFile, warn }, license) {
         if (license == 'MIT') {
           removeFile('LICENSE-AGPL')
           renameFile('LICENSE-MIT', 'LICENSE')
@@ -15,7 +15,7 @@ export default {
           removeFile('LICENSE-MIT')
           renameFile('LICENSE-AGPL', 'LICENSE')
         } else {
-          warning(`Unknown license ${license}`)
+          warn(`Unknown license ${license}`)
         }
       },
     },
@@ -37,5 +37,12 @@ export default {
         removeFiles(/splendid\/.*?\/README\.md$/)
       },
     },
+  },
+  async afterInit({ manager }, { spawn, warn }) {
+    if (manager == 'yarn') {
+      await spawn('yarn')
+    } else {
+      warn('You should run npm install in the new repository.')
+    }
   },
 }
