@@ -7,13 +7,25 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Splendid",
+      "name": "Launch Splendid Dev",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "args": [
         "-s",
         "-e", "dev"
+      ],
+      "program": "${workspaceFolder}/node_modules/.bin/splendid"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Splendid Prod",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "args": [
+        "-s",
       ],
       "program": "${workspaceFolder}/node_modules/.bin/splendid"
     }

@@ -1,7 +1,7 @@
 /**
- * A Plain component.
+ * A Plain component that is rendered over an element.
  * The component that will update already server-rendered element
- * of the same name (github-badge) with the accurate number of
+ * of the same name (`github-badge`) with the accurate number of
  * stars on GitHub.
  * @example
  */
@@ -12,6 +12,12 @@ export default class GithubBadge {
   constructor(el) {
     this.el = el
   }
+  /**
+   * Need to implement this static method, if not using Preact.
+   * The reason is because when compiled, classes change to functions
+   * therefore it's not possible to check if they inherit from
+   * `preact.Component`.
+   */
   static get plain() {
     return true
   }

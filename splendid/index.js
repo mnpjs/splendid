@@ -9,6 +9,7 @@ const config = {
   ],
   // for sitemap and social-buttons
   url: '{{ URL }}',
+  prefixes: ['-webkit-hyphens', '-ms-hyphens'],
 }
 
 export default config

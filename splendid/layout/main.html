@@ -1,27 +1,13 @@
 <!doctype html>
-<html lang="en" class="no-js h-100">
+<html lang="en" h-100 class="no-js">
   <block-head />
-  <body class="d-flex flex-column h-100">
+  <body d-flex flex-column h-100>
     <ajax-loader />
-    <main role="main" class="flex-shrink-0">
+    <main role="main" flex-shrink-0>
       <container>
         <row>
-          <column md-3 class="left-column">
-            <div class="logo">
-              <img src="img/logo.jpg" alt="{{ full-name }} logo">
-            </div>
-            <div class="badges">
-              <github-badge name="my-new-package" org="{{ org }}" />
-              <!-- uncomment when published -->
-              <!-- <npm-badge package="my-new-package">_MyNewPackage_</npm-badge> -->
-            </div>
-
-            ### Pages
-
-            <pages />
-
-            <social-buttons meta />
-          </column>
+          <block-left-column/>
+          <!-- Everything inside of #Content will be ajaxed -->
           <column class="right-column" md-9 id="Content">
             {{ content }}
           </column>
