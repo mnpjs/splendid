@@ -7,7 +7,7 @@ export default {
       getDefault() {
         return 'AGPL'
       },
-      afterQuestions({ removeFile, renameFile }, license, { warning }) {
+      afterQuestions({ removeFile, renameFile, warning }, license) {
         if (license == 'MIT') {
           removeFile('LICENSE-AGPL')
           renameFile('LICENSE-MIT', 'LICENSE')
