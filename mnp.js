@@ -68,6 +68,6 @@ export default {
         this.debug('Setting font in %s', this.path)
         return font
       },
-    }, { file: '.gitignore' })
+    }, { extensions: ['html', 'css'] })
   },
 }
