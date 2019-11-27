@@ -25,10 +25,10 @@
   resolved "https://registry.yarnpkg.com/@depack/split/-/split-1.0.0.tgz#37fea28d9bc6f01e5a2da87d393f402781bb7e99"
   integrity sha512-PNJPl01VFMKtyN7qBZ2cds4N/lO2KvzLrR7JamODFiuuL2X8mGoTKp1SI8fxlT2MwLV8mScCUKn55QPwsUX7iA==
 
-"@externs/preact@^1.2.7":
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/@externs/preact/-/preact-1.2.7.tgz#1003b6ce246dc9dba6681d37ddc0d32793311feb"
-  integrity sha512-0TPZOBoEdLoS0QBu9NOYB41huYxV6YEMRZbKBtCy05nEXCJiAHDw/jam+biUNuGM2+/eGMn/4VH6BeeXxFnf4Q==
+"@externs/preact@^1.2.9":
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/@externs/preact/-/preact-1.2.9.tgz#4c7be52ca978a98f8e2a4546cafcfef33416bf9a"
+  integrity sha512-txXV8G4pFzZgQXQHqhlpT2c+WHFK3cRZ4eZGI38R9+h57zu/oJXQ8CGlvDlIpWhbh8DU+S4Kf66hX0rxs5+pZA==
 
 "@idio/frontend@^1.6.0":
   version "1.6.0"
@@ -235,12 +235,12 @@ select@^1.1.2:
   resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
   integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
 
-splendid@^1.14.12:
-  version "1.14.12"
-  resolved "https://registry.yarnpkg.com/splendid/-/splendid-1.14.12.tgz#42f114b5d44f45a351e09bd9314e12cbef878aac"
-  integrity sha512-PWO7hQTYn0mKl56oTSXz6s9j/qNewEVgX0+b4VIi/xFXHA8QRXxkLtjdwwwMeruHQkNHiRNQ2vstmH6SE6yYsw==
+splendid@^1.15.0:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/splendid/-/splendid-1.15.0.tgz#448cecee35be4b148f4f423e8a2b649b14cd86cf"
+  integrity sha512-G4da6E/pvt6CeDpUdfNpxvUtrvenWfyYzWpFzVreNVSRV7jDZjynqWr5KAxruZL7bUMEj7lvkLdI6uesqg+3Nw==
   dependencies:
-    "@externs/preact" "^1.2.7"
+    "@externs/preact" "^1.2.9"
     "@idio/frontend" "^1.6.0"
     "@idio/idio" "^0.1.0"
     "@idio/websocket" "^1.0.0"

@@ -2,10 +2,11 @@
 
 {{ description }}
 
-A new website made with [Splendid](https://www.npmjs.com/package/splendid): {{ URL }}.
+A new website made with [Splendid][1]: {{ URL }}.
 
 ## Copyright
 
-(c) [{{ trademark }}][1] {{ year }}
+(c) [{{ trademark }}][2] {{ year }}
 
-[1]: {{ website }}
+[1]: https://www.npmjs.com/package/splendid
+[2]: {{ website }}
