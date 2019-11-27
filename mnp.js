@@ -56,7 +56,7 @@ export default {
       warn('You should run npm install in the new repository.')
     }
     await updateFiles({
-      re: /# start template[\s\S]+?#end template(\n|$)/,
+      re: /# start template[\s\S]+?# end template(\n|$)/,
       replacement() {
         this.debug('Fixing .gitignore %s', this.path)
         return ''
