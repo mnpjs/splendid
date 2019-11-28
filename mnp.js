@@ -51,7 +51,8 @@ export default {
       },
     },
   },
-  async afterInit({ manager, org, name, URL }, { spawn, warn, updateFiles, removeFile, github }) {
+  async afterInit({ manager, org, name, URL },
+    { spawn, warn, updateFiles, removeFile, github, loading }) {
     if (manager == 'yarn') {
       await spawn('yarn')
     } else {
@@ -72,9 +73,9 @@ export default {
       },
     }, { extensions: ['html', 'css'] })
     removeFile('fonts.json')
-    await github.repos.edit(org, name, {
+    await loading(github.repos.edit(org, name, {
       homepage: URL,
-    })
+    }), 'Setting GitHub homepage')
   },
   files: {
     filenames(fn) {
