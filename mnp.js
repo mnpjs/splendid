@@ -73,11 +73,11 @@ export default {
       },
     }, { extensions: ['html', 'css'] })
     removeFile('fonts.json')
-    await loading(github.repos.edit(org, name, {
+    await loading('Setting GitHub homepage', github.repos.edit(org, name, {
       homepage: URL,
-    }), 'Setting GitHub homepage')
+    }))
     renameFile('docs/.index.html', 'docs/index.html')
-    await loading(github.pages.enable(org, name))
+    await loading('Enabling Pages on docs', github.pages.enable(org, name))
   },
   files: {
     filenames(fn) {
