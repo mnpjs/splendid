@@ -53,6 +53,8 @@ export default {
   },
   async afterInit({ manager, org, name, URL },
     { spawn, warn, updateFiles, removeFile, github, loading, renameFile }) {
+    removeFile('fonts.json')
+
     if (manager == 'yarn') {
       await spawn('yarn')
     } else {
@@ -66,13 +68,12 @@ export default {
       },
     }, { file: '.gitignore' })
     await updateFiles({
-      re: /{{ font }}/g,
+      re: /Lobster/g, // {{ font }}
       replacement() {
         this.debug('Setting font in %s', this.path)
         return font
       },
     }, { extensions: ['html', 'css'] })
-    removeFile('fonts.json')
     await loading('Setting GitHub homepage', github.repos.edit(org, name, {
       homepage: URL,
     }))

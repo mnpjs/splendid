@@ -12,4 +12,8 @@ const P = {
   },
 }
 
+Object.values(P).forEach((page) => {
+  page.layout = '~/help/layout/main.html'
+})
+
 export default P

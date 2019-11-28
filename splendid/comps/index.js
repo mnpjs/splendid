@@ -17,10 +17,11 @@ const io = makeIo()
 /** @type {!Array<!preact.PreactProps>} */
 const meta = [{
   key: 'social-buttons',
-  id: 'cce8d',
+  id: 'ca0b5',
   props: {
     url: '{{ URL }}/',
     meta: 'true',
+    className: 'b-xq b-Hk',
   },
 },
 {

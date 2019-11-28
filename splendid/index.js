@@ -7,8 +7,9 @@ const config = {
       replacement: '[{{ trademark }}]({{ website }})',
     },
   ],
-  pages: '~/pages',
+  pages: '../pages',
   elements: ['elements', '../help/elements'],
+  blocks: ['blocks', '../help/blocks'],
   // for sitemap and social-buttons
   url: '{{ URL }}',
   // which prefixes to keep in the main CSS

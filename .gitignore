@@ -60,6 +60,7 @@ typings/
 # next.js build output
 .next
 
+depack-temp
 splendid/.cache
 # start template
 docs/*

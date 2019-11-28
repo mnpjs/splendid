@@ -4,3 +4,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', sans-serif;
 }
+.tm, .tm2 {
+  font-family: 'Source Code Pro', monospace;
+}
+.tm {
+  background-color: lightgreen;
+}
+.tm2 {
+  background-color: lightcoral;
+}
