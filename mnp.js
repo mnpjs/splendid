@@ -52,7 +52,7 @@ export default {
     },
   },
   async afterInit({ manager, org, name, URL },
-    { spawn, warn, updateFiles, removeFile, github, loading }) {
+    { spawn, warn, updateFiles, removeFile, github, loading, renameFile }) {
     if (manager == 'yarn') {
       await spawn('yarn')
     } else {
@@ -76,6 +76,8 @@ export default {
     await loading(github.repos.edit(org, name, {
       homepage: URL,
     }), 'Setting GitHub homepage')
+    renameFile('docs/.index.html', 'docs/index.html')
+    await loading(github.pages.enable(org, name))
   },
   files: {
     filenames(fn) {
