@@ -1,10 +1,14 @@
+import { parse } from 'url'
 import fonts from './fonts'
 const font = fonts[Math.floor(Math.random() * fonts.length)]
 
 export default {
   questions: {
-    'URL'({ org, name }) {
-      return `https://${org}.github.io/${name}/`
+    'URL': {
+      getDefault ({ org, name }) {
+        return `https://${org}.github.io/${name}/`
+      },
+      alias: 'https://mnpjs.github.io/splendid/',
     },
     'license': {
       text: 'License (MIT/AGPL)',
@@ -79,6 +83,17 @@ export default {
     }))
     renameFile('docs/.index.html', 'docs/index.html')
     await loading('Enabling Pages on docs', github.pages.enable(org, name))
+
+    const { pathname } = parse(URL)
+    updateFiles([{
+      // re: /\/\/start mount\s+mount: '\/{{ name }}', \/\/ end mount/,
+      re: /mount: '\/splendid'/,
+      replacement() {
+        if (pathname == '/') return `// mount: '${pathname}'`
+        return `mount: '${pathname}'`
+      },
+    },
+    ])
   },
   files: {
     filenames(fn) {

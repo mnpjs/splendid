@@ -39,7 +39,7 @@ const render = async (owner, name, splendid, { log, logError }, { $name, $stars 
       await splendid.aqt(`https://api.github.com/repos/${owner}/${name}`)
     if (statusCode != 200) {
       if (body.message && body.documentation_url) {
-        throw splendid.newError(`${body.message} ${body.documentation_url}`)
+        throw splendid.newError(`${owner}/${name} ${body.message} ${body.documentation_url}`)
       } else {
         throw splendid.newError(`${statusCode} ${statusMessage}`)
       }

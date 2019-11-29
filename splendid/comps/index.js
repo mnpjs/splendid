@@ -16,21 +16,22 @@ const io = makeIo()
 
 /** @type {!Array<!preact.PreactProps>} */
 const meta = [{
-  key: 'social-buttons',
-  id: 'ca0b5',
-  props: {
-    url: '{{ URL }}/',
-    meta: 'true',
-    className: 'b-xq b-Hk',
-  },
-},
-{
   key: 'ellipsis',
   id: 'ceb55',
   props: {
     timeout: '300',
   },
-  children: ["\n  Please bear one moment before I add the content\n"],
+  children: ["\n  Please bear one moment while I add the content\n"],
+},
+{
+  key: 'social-buttons',
+  id: 'c801e',
+  props: {
+    url: 'https://mnpjs.github.io/splendid/',
+    meta: 'true',
+    className: 'b-xq b-Hk',
+    mount: '/splendid/',
+  },
 }]
 meta.forEach(({ key, id, props = {}, children = [] }) => {
   const Comp = __components[key]

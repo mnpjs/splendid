@@ -2,7 +2,7 @@
  * @type {import('splendid').Page}
  */
 export const index = {
-  title: '{{ MyNewPackage }}',
+  title: 'MyNewPackage',
   seo: 'The 150-160 characters search engine meta:description',
   og: {
     image: '/img/logo.jpg',
