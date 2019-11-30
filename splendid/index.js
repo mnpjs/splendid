@@ -16,6 +16,7 @@ const config = {
   url: 'https://mnpjs.github.io/splendid/',
   // required when pages are at org.github.io/pages-name
   mount: '/splendid',
+  potracePath: '~/.splendid/potrace',
 }
 
 export default config
