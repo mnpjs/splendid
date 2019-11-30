@@ -96,10 +96,16 @@ export default {
     },
     ], { file: 'splendid/index.js' })
     await installPotrace(api)
+    await loading('Fetching splash', splash())
   },
   files: {
     filenames(fn) {
       return [...fn, /LICENSE-.+$/]
     },
   },
+}
+
+const splash = async ({ download, writeFileSync }) => {
+  const photo = await download('https://source.unsplash.com/collection/923267/600x400')
+  writeFileSync('splendid/img/splash.jpg', photo)
 }
