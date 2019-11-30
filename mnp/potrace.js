@@ -1,7 +1,8 @@
 import { join } from 'path'
 import { homedir } from 'os'
+import { readdirSync, linkSync } from 'fs'
 
-const HOME_LOC = '.splendid/potrace'
+const HOME_LOC = '.splendid'
 
 const findPotrace = async (spawn, locations) => {
   const f = await locations.reduce(async (found, current) => {
@@ -66,9 +67,12 @@ export default async function installPotrace({ spawn, askSingle, warn, saveArchi
   const link = platform[process.arch]
   if (!link) warn('Architecture %s is not supported', process.arch)
   debugger
-  const res = await loading(`Downloading ${link}`, saveArchive(link, installPath, 'potrace'))
+  const res = await loading(`Downloading ${link}`, saveArchive(link, installPath))
   if (res) {
-    const bin = getBinPath(installPath)
+    const [r] = readdirSync(res)
+    const path = join(installPath, r)
+    const bin = getBinPath(path)
+    linkSync(bin, HOME_BIN)
     await setConfig(bin)
   }
 }
