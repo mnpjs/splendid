@@ -77,7 +77,7 @@ export default async function installPotrace({ spawn, askSingle, warn, saveArchi
   }
 }
 
-
+// http://potrace.sourceforge.net/#downloading
 const links = {
   win32: {
     'ia32': 'http://potrace.sourceforge.net/download/1.16/potrace-1.16.win32.zip',
