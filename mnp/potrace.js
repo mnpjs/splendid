@@ -25,7 +25,7 @@ const getBinPath = (dir) => {
 }
 
 export default async function installPotrace({ spawn, askSingle, warn, saveArchive,
-  updateFiles }) {
+  updateFiles, loading }) {
   const HOME_POTRACE = join(homedir(), HOME_LOC)
   const HOME_BIN = getBinPath(HOME_POTRACE)
   const potrace = await findPotrace(spawn, ['potrace', HOME_BIN])
@@ -65,7 +65,8 @@ export default async function installPotrace({ spawn, askSingle, warn, saveArchi
   if (!platform) warn('Platform %s is not supported', process.platform)
   const link = platform[process.arch]
   if (!link) warn('Architecture %s is not supported', process.arch)
-  await saveArchive(link, installPath)
+  debugger
+  await loading(`Downloading ${link}`, saveArchive(link, installPath))
   const bin = getBinPath(installPath)
   await setConfig(bin)
 }
