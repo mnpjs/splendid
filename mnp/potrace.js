@@ -66,7 +66,8 @@ export default async function installPotrace({ spawn, askSingle, warn, saveArchi
   if (!platform) warn('Platform %s is not supported', process.platform)
   const link = platform[process.arch]
   if (!link) warn('Architecture %s is not supported', process.arch)
-  const res = await loading(`Downloading ${link}`, saveArchive(link, installPath))
+  console.log('potrace binary found at: %s', link)
+  const res = await loading('Downloading potrace', saveArchive(link, installPath))
   if (res) {
     const [r] = readdirSync(res)
     const path = join(installPath, r)
