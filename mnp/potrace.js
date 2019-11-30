@@ -66,9 +66,11 @@ export default async function installPotrace({ spawn, askSingle, warn, saveArchi
   const link = platform[process.arch]
   if (!link) warn('Architecture %s is not supported', process.arch)
   debugger
-  await loading(`Downloading ${link}`, saveArchive(link, installPath))
-  const bin = getBinPath(installPath)
-  await setConfig(bin)
+  const res = await loading(`Downloading ${link}`, saveArchive(link, installPath, 'potrace'))
+  if (res) {
+    const bin = getBinPath(installPath)
+    await setConfig(bin)
+  }
 }
 
 
