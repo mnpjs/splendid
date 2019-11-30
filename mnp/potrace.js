@@ -27,14 +27,17 @@ const getBinPath = (dir) => {
 export default async function installPotrace({ spawn, askSingle, warn, saveArchive,
   updateFiles }) {
   const HOME_POTRACE = join(homedir(), HOME_LOC)
-  debugger
-  const potrace = await findPotrace(spawn, ['potrace', getBinPath(HOME_POTRACE)])
+  const HOME_BIN = getBinPath(HOME_POTRACE)
+  const potrace = await findPotrace(spawn, ['potrace', HOME_BIN])
+  const setConfig = async (p) => {
+    await updateFiles({ re: /potracePath: '.+?'/,
+      replacement: `potracePath: '${p.replace(homedir(), '~')}'`,
+    }, { file: 'splendid/index.js' })
+  }
   if (potrace) {
     if (potrace == 'potrace') console.log('Found potrace globally')
     else console.log('Found potrace in %s', potrace)
-    await updateFiles({ re: /potracePath: '.+?'/,
-      replacement: `potracePath: '${potrace.replace(homedir(), '~')}'`,
-    }, { file: 'splendid/index.js' })
+    await setConfig(potrace)
     return
   }
   console.log('To generate potrace effect on images, Splendid needs potrace binary')
@@ -63,6 +66,8 @@ export default async function installPotrace({ spawn, askSingle, warn, saveArchi
   const link = platform[process.arch]
   if (!link) warn('Architecture %s is not supported', process.arch)
   await saveArchive(link, installPath)
+  const bin = getBinPath(installPath)
+  await setConfig(bin)
 }
 
 
