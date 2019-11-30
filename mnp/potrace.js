@@ -42,7 +42,7 @@ export default async function installPotrace({ spawn, askSingle, warn, saveArchi
   console.log('and installed in the project or user home ~/.splendid dir automatically.')
   const answer = await askSingle({
     text: 'Download potrace now? [project|local|n]',
-    default: 'local',
+    getDefault() { return 'local' },
   })
   let installPath
   if (answer == 'project') {
