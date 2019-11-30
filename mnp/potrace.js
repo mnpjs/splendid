@@ -6,10 +6,10 @@ const HOME_LOC = '.splendid/potrace'
 const findPotrace = async (spawn, locations) => {
   const f = await locations.reduce(async (found, current) => {
     found = await found
-    if (found) return
+    if (found) return found
     try {
       await spawn(current, ['-v'])
-      return true
+      return current
     } catch (err) {
       return null
     }
@@ -20,8 +20,8 @@ const findPotrace = async (spawn, locations) => {
 export default async function installPotrace({ spawn, askSingle, warn, saveArchive,
   updateFiles }) {
   const HOME_POTRACE = join(homedir(), HOME_LOC)
-  const potrace = await findPotrace(spawn, ['potrace', HOME_POTRACE])
   debugger
+  const potrace = await findPotrace(spawn, ['potrace', HOME_POTRACE])
   if (potrace) {
     if (potrace == 'potrace') console.log('Found potrace globally')
     else console.log('Found potrace in %s', potrace)
