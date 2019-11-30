@@ -235,10 +235,10 @@ select@^1.1.2:
   resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
   integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
 
-splendid@^1.15.6:
-  version "1.15.6"
-  resolved "https://registry.yarnpkg.com/splendid/-/splendid-1.15.6.tgz#94c6d8d4136e41d0da7b9a8fe8d771c2c3d54062"
-  integrity sha512-Yd+8D/WPxk082Sojd2aYnSLbxP/A6vRsV6OL03G9L6mhMngJrCzSJbvZGiHsk/sMhyySGKjba4SP3fTAvQF/3A==
+splendid@^1.16.0:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/splendid/-/splendid-1.16.0.tgz#93a3996c1dafea05288c34ec00ff0876b514e54c"
+  integrity sha512-/u+3MVo9wQEdxm7++ha/bSQ3CWlH91GkQSLJIzNCzaRoadn9FyUqKezngFRRpxs6VDS+xkviIP9MXaW9kt1Psw==
   dependencies:
     "@externs/preact" "^1.2.9"
     "@idio/frontend" "^1.6.0"
