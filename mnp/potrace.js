@@ -7,21 +7,28 @@ const findPotrace = async (spawn, locations) => {
   const f = await locations.reduce(async (found, current) => {
     found = await found
     if (found) return found
-    try {
-      await spawn(current, ['-v'])
-      return current
-    } catch (err) {
-      return null
-    }
+    const res = await spawn(current, ['-v'], { quiet: true })
+    if (!res) return null
+    return current
   }, null)
   return f
+}
+
+const getBinPath = (dir) => {
+  switch (process.platform) {
+  case 'linux':
+  case 'darwin':
+    return join(dir, 'potrace')
+  case 'win32':
+    return join(dir, 'potrace.exe')
+  }
 }
 
 export default async function installPotrace({ spawn, askSingle, warn, saveArchive,
   updateFiles }) {
   const HOME_POTRACE = join(homedir(), HOME_LOC)
   debugger
-  const potrace = await findPotrace(spawn, ['potrace', HOME_POTRACE])
+  const potrace = await findPotrace(spawn, ['potrace', getBinPath(HOME_POTRACE)])
   if (potrace) {
     if (potrace == 'potrace') console.log('Found potrace globally')
     else console.log('Found potrace in %s', potrace)
