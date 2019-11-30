@@ -1,6 +1,6 @@
 import { join } from 'path'
 import { homedir } from 'os'
-import { readdirSync, linkSync } from 'fs'
+import { readdirSync, symlinkSync } from 'fs'
 
 const HOME_LOC = '.splendid'
 
@@ -66,13 +66,12 @@ export default async function installPotrace({ spawn, askSingle, warn, saveArchi
   if (!platform) warn('Platform %s is not supported', process.platform)
   const link = platform[process.arch]
   if (!link) warn('Architecture %s is not supported', process.arch)
-  debugger
   const res = await loading(`Downloading ${link}`, saveArchive(link, installPath))
   if (res) {
     const [r] = readdirSync(res)
     const path = join(installPath, r)
     const bin = getBinPath(path)
-    linkSync(bin, HOME_BIN)
+    symlinkSync(bin, HOME_BIN)
     await setConfig(HOME_BIN)
   }
 }
