@@ -1,8 +1,7 @@
 import { parse } from 'url'
-import { join } from 'path'
-import { homedir, platform, arch } from 'os'
 import fonts from './fonts'
 import installPotrace from './potrace'
+
 const font = fonts[Math.floor(Math.random() * fonts.length)]
 
 export default {
@@ -59,8 +58,7 @@ export default {
     },
   },
   async afterInit({ manager, org, name, URL }, api) {
-    const { spawn, warn, updateFiles, removeFile, github, loading, renameFile } = api
-    removeFile('fonts.json')
+    const { spawn, warn, updateFiles, github, loading, renameFile } = api
 
     if (manager == 'yarn') {
       await spawn('yarn')

@@ -1,6 +1,5 @@
-import { writeFileSync, unlinkSync } from 'fs'
-import { join, basename } from 'path'
-import { homedir, tmpdir } from 'os'
+import { join } from 'path'
+import { homedir } from 'os'
 
 const HOME_LOC = '.splendid/potrace'
 
