@@ -96,7 +96,7 @@ export default {
     },
     ], { file: 'splendid/index.js' })
     await installPotrace(api)
-    await loading('Fetching splash', splash())
+    await loading('Fetching splash', splash(api))
   },
   files: {
     filenames(fn) {
