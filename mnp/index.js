@@ -86,7 +86,7 @@ export default {
     await loading('Enabling Pages on docs', github.pages.enable(org, name))
 
     const { pathname } = parse(URL)
-    updateFiles([{
+    await updateFiles([{
       // re: /\/\/start mount\s+mount: '\/{{ name }}', \/\/ end mount/,
       re: /mount: '\/splendid'/,
       replacement() {
@@ -94,7 +94,7 @@ export default {
         return `mount: '${pathname}'`
       },
     },
-    ])
+    ], { file: 'splendid/index.js' })
     await installPotrace(api)
   },
   files: {
