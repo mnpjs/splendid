@@ -73,7 +73,7 @@ export default async function installPotrace({ spawn, askSingle, warn, saveArchi
     const path = join(installPath, r)
     const bin = getBinPath(path)
     linkSync(bin, HOME_BIN)
-    await setConfig(bin)
+    await setConfig(HOME_BIN)
   }
 }
 
