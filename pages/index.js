@@ -7,6 +7,9 @@ export const index = {
   og: {
     image: '/img/logo.jpg',
   },
+  links: {
+    gutenberg: 'https://www.gutenberg.org/files/84/84-h/84-h.htm',
+  },
 }
 
 /**

@@ -19,13 +19,14 @@ const meta = [{
 meta.forEach(({ key, id, props = {}, children = [] }) => {
   const Comp = __components[key]
   const plain = true
-  props.splendid = { addCSS(stylesheet) {
+  props.splendid = { mount: '/splendid/', addCSS(stylesheet) {
     return makeClassGetter(renameMaps[stylesheet])
   } }
 
   const ids = id.split(',')
   ids.forEach((Id) => {
     const { parent, el } = init(Id, key)
+    if (!el) return
     const renderMeta = /** @type {_competent.RenderMeta} */ ({ key, id: Id, plain })
     let comp
     el.render = () => {

@@ -240,10 +240,10 @@ select@^1.1.2:
   resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
   integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
 
-splendid@^1.16.2:
-  version "1.16.2"
-  resolved "https://registry.yarnpkg.com/splendid/-/splendid-1.16.2.tgz#a6cead9715687b72dd90ec6c54ffee74a9ac700c"
-  integrity sha512-qLe+GZx2vqBJvjO4uI3/Xqv+4haZrN/mWmReEn3iGEBa4fh2/5FE8qioqFMiY/Uf3XQO+yYhUDnR/jToct7c8g==
+splendid@^1.16.3:
+  version "1.16.3"
+  resolved "https://registry.yarnpkg.com/splendid/-/splendid-1.16.3.tgz#e3822e00891c3a1280b66b765f4de820800c11b0"
+  integrity sha512-1x73Jx1ME6zqoBYfHEe8JGanpfpYdqCIOOZ+06SQqRZR243FtzDy0PLJUwt+vj+ePkJuYWQ4jwgTVgqX9QFR9g==
   dependencies:
     "@externs/preact" "^1.2.9"
     "@idio/frontend" "^1.6.0"

@@ -88,13 +88,24 @@ export default {
     const { pathname } = parse(URL)
     await updateFiles([{
       // re: /\/\/start mount\s+mount: '\/{{ name }}', \/\/ end mount/,
-      re: /mount: '\/splendid'/,
+      re: /mount: '\/splendid'/g,
       replacement() {
-        if (pathname == '/') return `// mount: '${pathname}'`
+        if (pathname == '/') return `/* mount: '${pathname}' */`
         return `mount: '${pathname}'`
       },
     },
     ], { file: 'splendid/index.js' })
+    await updateFiles([{
+      // re: /\/\/start mount\s+mount: '\/{{ name }}', \/\/ end mount/,
+      re: /mount: '\/splendid\/' /g,
+      replacement() {
+        if (pathname == '/') return ''
+        return `mount: '${pathname}', `
+      },
+    },
+    ], { files: [
+      'splendid/comps/index.js', 'splendid/comps/help/images.js',
+    ] })
     await installPotrace(api)
     await loading('Fetching splash', splash(api))
   },
