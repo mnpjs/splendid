@@ -191,9 +191,9 @@ makepromise@^3.1.0:
     erotic "^2.1.0"
 
 mime-db@^1.40.0:
-  version "1.40.0"
-  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.40.0.tgz#a65057e998db090f732a68f6c276d387d4126c32"
-  integrity sha512-jYdeOMPy9vnxEqFRRo6ZvTZ8d9oPb+k18PKoYNYUe2stVEBPPwsln/qWzdbmaIvnhZ9v2P+CuecK+fpUfsV2mA==
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.42.0.tgz#3e252907b4c7adb906597b4b65636272cf9e7bac"
+  integrity sha512-UbfJCR4UAVRNgMpfImz05smAXK7+c+ZntjaA26ANtkXLlOe947Aag5zdIcKQULAiF9Cq4WxBi9jUs5zkA84bYQ==
 
 preact@8.5.2:
   version "8.5.2"
@@ -219,15 +219,7 @@ resolve-dependency@^1.0.3:
   dependencies:
     "@wrote/exists" "^1.0.3"
 
-restream@^3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/restream/-/restream-3.7.1.tgz#4ffefbd2a008965413e90d50fa7f0898889b3a61"
-  integrity sha512-OZLcbqwcZ1VMW3MziEjE4xaeqXvl8r367pBmgviRNl3dywyzdi+ueKFW5p1qPaYaZwIRvaR/TqAlB0XKJVX90g==
-  dependencies:
-    "@artdeco/clean-stack" "^1.1.1"
-    catchment "^3.3.0"
-
-restream@^3.7.4:
+restream@^3.7.1, restream@^3.7.4:
   version "3.7.4"
   resolved "https://registry.yarnpkg.com/restream/-/restream-3.7.4.tgz#e86c455f92ba65ce41d9e450ed54d065a130f89c"
   integrity sha512-heKiPfU5CLE/jTLcs53MyvE1jje/V/JViAD95LMY1p0XVDLyVcyM4iUo0iYUnuNUYTUxrJyKpXDTu7GKOr0pFA==
@@ -240,10 +232,10 @@ select@^1.1.2:
   resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
   integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
 
-splendid@^1.16.3:
-  version "1.16.3"
-  resolved "https://registry.yarnpkg.com/splendid/-/splendid-1.16.3.tgz#e3822e00891c3a1280b66b765f4de820800c11b0"
-  integrity sha512-1x73Jx1ME6zqoBYfHEe8JGanpfpYdqCIOOZ+06SQqRZR243FtzDy0PLJUwt+vj+ePkJuYWQ4jwgTVgqX9QFR9g==
+splendid@^1.16.4:
+  version "1.16.4"
+  resolved "https://registry.yarnpkg.com/splendid/-/splendid-1.16.4.tgz#c73238200f5bdc7f0ebcba13f6dc1295a1c9004c"
+  integrity sha512-anw0yCtcDQxEB0P2A9yuppSsDs0gGi4xvFKX0fzslb5GxuClUjOZI/yYN6OwSaHYSpMWQ0lvZnMy+472x+iV0Q==
   dependencies:
     "@externs/preact" "^1.2.9"
     "@idio/frontend" "^1.6.0"
@@ -265,9 +257,9 @@ tiny-emitter@^2.0.0:
   integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
 
 typal@^1.22.6:
-  version "1.22.6"
-  resolved "https://registry.yarnpkg.com/typal/-/typal-1.22.6.tgz#c3162f5f19e91ad6d830375220e6552fcb4a0936"
-  integrity sha512-N6tkgC/r7OXwH0/hEFNRH6S/7zPfMXJU45w78KGgy8JLbt3lAbWPd4NWUZjQt6o2id23P34KeHSmNR4ddI/zZQ==
+  version "1.22.7"
+  resolved "https://registry.yarnpkg.com/typal/-/typal-1.22.7.tgz#fd0c13d670f662094f8f46c04aefd3f8be1e9fc0"
+  integrity sha512-U/YO1h9KA44bjwHqwBtZUQVHkWMZoB72X0wqShdQ+giQGd9n0f6efOesT71R8kGcewpAINNC8pSKim1P/z/Ogw==
 
 zoroaster@^4.1.2:
   version "4.1.2"
