@@ -97,7 +97,7 @@ export default {
     ], { file: 'splendid/index.js' })
     await updateFiles([{
       // re: /\/\/start mount\s+mount: '\/{{ name }}', \/\/ end mount/,
-      re: /mount: '\/splendid\/' /g,
+      re: /mount: '\/splendid\/', /g,
       replacement() {
         if (pathname == '/') return ''
         return `mount: '${pathname}', `
