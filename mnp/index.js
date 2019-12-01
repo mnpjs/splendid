@@ -12,24 +12,6 @@ export default {
       },
       alias: 'https://mnpjs.github.io/splendid/',
     },
-    'license': {
-      text: 'License (MIT/AGPL)',
-      getDefault() {
-        return 'AGPL'
-      },
-      // https://spdx.org/licenses/
-      afterQuestions({ removeFiles, renameFile, warn }, license) {
-        const supported = ['MIT', 'AGPL']
-        if (!supported.includes(license)) {
-          warn(`Unknown license ${license}`)
-          return
-        }
-        renameFile(`LICENSE-${license}`, 'LICENSE')
-        removeFiles(/LICENSE-.+$/)
-        if (license == 'AGPL') return 'AGPL-3.0-or-later'
-        return 'MIT'
-      },
-    },
     'Keep help': {
       confirm: true,
       async afterQuestions({ updateFiles, removeFiles }, keep) {
