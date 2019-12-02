@@ -40,17 +40,11 @@ export default {
     },
   },
   async afterInit({ org, name, URL }, api) {
-    const { updateFiles, github, loading, renameFile, initManager } = api
+    const { updateFiles, github, loading, renameFile, initManager, fixGitignore } = api
 
     await initManager()
 
-    await updateFiles({
-      re: /# start template[\s\S]+?# end template(\n|$)/,
-      replacement() {
-        this.debug('Fixing .gitignore %s', this.path)
-        return ''
-      },
-    }, { file: '.gitignore' })
+    await fixGitignore()
     await updateFiles({
       re: /Lobster/g, // {{ font }}
       replacement() {
