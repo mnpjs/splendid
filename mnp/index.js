@@ -40,11 +40,10 @@ export default {
     },
   },
   async afterInit({ org, name, URL }, api) {
-    const { updateFiles, github, loading, renameFile, initManager, fixGitignore } = api
+    const { updateFiles, github, loading, renameFile, initManager } = api
 
     await initManager()
 
-    await fixGitignore()
     await updateFiles({
       re: /Lobster/g, // {{ font }}
       replacement() {
