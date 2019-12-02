@@ -39,14 +39,11 @@ export default {
       },
     },
   },
-  async afterInit({ manager, org, name, URL }, api) {
-    const { spawn, warn, updateFiles, github, loading, renameFile } = api
+  async afterInit({ org, name, URL }, api) {
+    const { updateFiles, github, loading, renameFile, initManager } = api
 
-    if (manager == 'yarn') {
-      await spawn('yarn')
-    } else {
-      warn('You should run npm install in the new repository.')
-    }
+    await initManager()
+
     await updateFiles({
       re: /# start template[\s\S]+?# end template(\n|$)/,
       replacement() {
