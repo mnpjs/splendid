@@ -15,15 +15,15 @@
   "files": [],
   "repository": {
     "type": "git",
-    "url": "{{ git_url }}"
+    "url": "{{ repo.git_url }}"
   },
   "keywords": [
     "{{ keywords }}"
   ],
   "author": "{{ author_name }} <{{ author_email }}>",
-  "license": "{{ license }}",
+  "license": "{{ license_spdx }}",
   "bugs": {
-    "url": "{{ issues_url }}"
+    "url": "{{ repo.html_url }}/issues"
   },
   "homepage": "{{ URL }}",
   "devDependencies": {

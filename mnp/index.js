@@ -5,6 +5,7 @@ import installPotrace from './potrace'
 const font = fonts[Math.floor(Math.random() * fonts.length)]
 
 export default {
+  mnpQuestions: ['license'],
   questions: {
     'URL': {
       getDefault ({ org, name }) {
@@ -80,11 +81,6 @@ export default {
     ] })
     await installPotrace(api)
     await loading('Fetching splash', splash(api))
-  },
-  files: {
-    filenames(fn) {
-      return [...fn, /LICENSE-.+$/]
-    },
   },
 }
 
