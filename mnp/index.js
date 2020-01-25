@@ -22,7 +22,7 @@ export default {
     keepHelp: {
       text: 'Keep help',
       confirm: true,
-      async afterQuestions({ updateFiles, removeFiles }, keep) {
+      async afterQuestions({ updateFiles, removeFiles, rm }, keep) {
         if (keep) await updateFiles([
           {
             re: /<!-- help: /gm,
@@ -50,8 +50,8 @@ export default {
           ], { file: 'pages/index.js' })
           removeFiles(/splendid\/.*?\/README\.md$/)
           removeFiles(/pages\/README\.md$/)
-          removeFiles(/splendid\/comps\/help\//)
-          removeFiles(/help\//)
+          await rm('splendid/comps/help')
+          await rm('help')
         }
       },
     },
