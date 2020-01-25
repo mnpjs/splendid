@@ -5,7 +5,7 @@ import installPotrace from './potrace'
 const font = fonts[Math.floor(Math.random() * fonts.length)]
 
 export default {
-  mnpQuestions: ['license'],
+  mnpQuestions: ['license', 'keywords'],
   questions: {
     'URL': {
       getDefault ({ org, name }) {
