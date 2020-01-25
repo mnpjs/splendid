@@ -44,7 +44,7 @@ export default {
           ], { extensions: ['html', 'md'] })
           await updateFiles([
             {
-              re: /\/\/ start help[\s\S]+?\/\/ end help\n/gm,
+              re: /\/\/ start help[\s\S]+?\/\/ end help\n?/gm,
               replacement() { return '' },
             },
           ], { file: 'pages/index.js' })

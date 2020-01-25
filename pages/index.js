@@ -12,6 +12,9 @@ export const index = {
   },
 }
 
+// additional directories
+// export const dir = '~/dir'
+
 // start help
 /**
  * A subdirectory with more pages should be exported as a
