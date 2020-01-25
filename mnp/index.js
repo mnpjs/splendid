@@ -44,10 +44,16 @@ export default {
           ], { extensions: ['html', 'md'] })
           await updateFiles([
             {
-              re: /\/\/ start help[\s\S]+?\/\/ end help\n?/gm,
+              re: /\n\/\/ start help[\s\S]+?\/\/ end help\n?/gm,
               replacement() { return '' },
             },
           ], { file: 'pages/index.js' })
+          await updateFiles([
+            {
+              re: /, '..\/help\/.+?'/gm,
+              replacement() { return '' },
+            },
+          ], { file: 'splendid/index.js' })
           removeFiles(/splendid\/.*?\/README\.md$/)
           removeFiles(/pages\/README\.md$/)
           await rm('splendid/comps/help')

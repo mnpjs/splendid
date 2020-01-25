@@ -1,5 +1,8 @@
+import __initSidebar from './__init/sidebar'
+import __renameMap0 from './__rename-maps/styles/sidebar'
 import makeClassGetter from './__mcg'
-const renameMaps = {  }
+const renameMaps = { 'styles/sidebar.css': __renameMap0 }
+__initSidebar()
 import { Component, render, h } from '@externs/preact'
 import { makeIo, init, start } from './__competent-lib'
 import Ellipsis from '../components/ellipsis.jsx'
