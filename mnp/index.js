@@ -13,7 +13,8 @@ export default {
       },
       alias: 'https://mnpjs.github.io/splendid/',
     },
-    'Keep help': {
+    keepHelp: {
+      text: 'Keep help',
       confirm: true,
       async afterQuestions({ updateFiles, removeFiles }, keep) {
         if (keep) await updateFiles([
@@ -35,12 +36,20 @@ export default {
               },
             },
           ], { extensions: ['html', 'md'] })
+          await updateFiles([
+            {
+              re: /\/\/ start help[\s\S]+\/\/end help\n/gm,
+              replacement() { return '' },
+            },
+          ], { file: 'pages/index.js' })
           removeFiles(/splendid\/.*?\/README\.md$/)
+          removeFiles(/^help\//)
+          removeFiles(/^splendid\/comps\/help\//)
         }
       },
     },
   },
-  async afterInit({ org, name, URL }, api) {
+  async afterInit({ org, name, URL, keepHelp }, api) {
     const { updateFiles, github, loading, renameFile, initManager } = api
 
     await initManager()
@@ -60,11 +69,10 @@ export default {
 
     const { pathname } = parse(URL)
     await updateFiles([{
-      // re: /\/\/start mount\s+mount: '\/{{ name }}', \/\/ end mount/,
-      re: /mount: '\/splendid'/g,
+      re: /mount: '\/splendid',/g,
       replacement() {
-        if (pathname == '/') return `/* mount: '${pathname}' */`
-        return `mount: '${pathname}'`
+        if (pathname == '/') return `/* mount: '${pathname}', */`
+        return `mount: '${pathname}',`
       },
     },
     ], { file: 'splendid/index.js' })
@@ -77,7 +85,8 @@ export default {
       },
     },
     ], { files: [
-      'splendid/comps/index.js', 'splendid/comps/help/images.js',
+      'splendid/comps/index.js',
+      ...(keepHelp ? ['splendid/comps/help/images.js'] : []),
     ] })
     await installPotrace(api)
     await loading('Fetching splash', splash(api))
