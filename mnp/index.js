@@ -38,13 +38,14 @@ export default {
           ], { extensions: ['html', 'md'] })
           await updateFiles([
             {
-              re: /\/\/ start help[\s\S]+\/\/end help\n/gm,
+              re: /\/\/ start help[\s\S]+?\/\/ end help\n/gm,
               replacement() { return '' },
             },
           ], { file: 'pages/index.js' })
           removeFiles(/splendid\/.*?\/README\.md$/)
-          removeFiles(/^help\//)
-          removeFiles(/^splendid\/comps\/help\//)
+          removeFiles(/pages\/README\.md$/)
+          removeFiles(/splendid\/comps\/help\//)
+          removeFiles(/help\//)
         }
       },
     },
