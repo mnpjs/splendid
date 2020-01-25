@@ -12,12 +12,12 @@ export default {
         return `https://${org}.github.io/${name}/`
       },
       alias: 'https://mnpjs.github.io/splendid/',
-    },
-    async afterQuestions({ writeFileSync }, url, { org, name }) {
-      const def = `https://${org}.github.io/${name}/`
-      if (url == def) return
-      const { host } = parse(url)
-      writeFileSync('docs/CNAME', host)
+      async afterQuestions({ writeFileSync }, url, { org, name }) {
+        const def = `https://${org}.github.io/${name}/`
+        if (url == def) return
+        const { host } = parse(url)
+        writeFileSync('docs/CNAME', host)
+      },
     },
     keepHelp: {
       text: 'Keep help',
