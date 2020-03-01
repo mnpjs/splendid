@@ -64,18 +64,16 @@ export default {
     await installPotrace(api)
     await loading('Fetching splash', splash(api))
     try {
-      await loading('Adding Webmaster Console ping webhook', async () => {
-        await github.request({
-          method: 'POST',
-          endpoint: `/repos/${org}/${name}/hooks`,
-          data: {
-            config: {
-              url: `http://www.google.com/ping?sitemap=${URL}/sitemap.xml`,
-            },
-            events: ['page_build'],
+      await loading('Adding Webmaster Console ping webhook', github._request({
+        method: 'POST',
+        endpoint: `/repos/${org}/${name}/hooks`,
+        data: {
+          config: {
+            url: `http://www.google.com/ping?sitemap=${URL}/sitemap.xml`,
           },
-        })
-      })
+          events: ['page_build'],
+        },
+      }))
     } catch (err) {
       warn(err.message)
     }
