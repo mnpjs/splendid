@@ -35,7 +35,7 @@ export default {
         else {
           await updateFiles([
             {
-              re: /^ *<!-- help: [\s\S]+? -->\s*/gm,
+              re: /^ *<!-- help: [\s\S]+? -->\r?\n/gm,
               replacement() {
                 this.debug('Removing help from %s', this.path)
                 return ''
@@ -44,7 +44,7 @@ export default {
           ], { extensions: ['html', 'md'] })
           await updateFiles([
             {
-              re: /\n\/\/ start help[\s\S]+?\/\/ end help\n?/gm,
+              re: /\n\/\/ start help[\s\S]+?\/\/ end help(\r?\n)?/gm,
               replacement() { return '' },
             },
           ], { file: 'pages/index.js' })
