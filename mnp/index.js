@@ -64,12 +64,13 @@ export default {
     await installPotrace(api)
     await loading('Fetching splash', splash(api))
     try {
+      const sitemap = joinURL(URL, 'sitemap.xml')
       await loading('Adding Webmaster Console ping webhook', github._request({
         method: 'POST',
         endpoint: `/repos/${org}/${name}/hooks`,
         data: {
           config: {
-            url: `http://www.google.com/ping?sitemap=${URL}/sitemap.xml`,
+            url: `http://www.google.com/ping?sitemap=${sitemap}`,
           },
           events: ['page_build'],
         },
@@ -78,6 +79,15 @@ export default {
       warn(err.message)
     }
   },
+}
+
+const joinURL = (part, ...args) => {
+  return args.reduce((acc, current) => {
+    const a = acc.replace(/\/$/, '')
+    const c = current.replace(/^\//, '')
+    acc = `${a}/${c}`
+    return acc
+  }, part)
 }
 
 const splash = async ({ download, writeFileSync }) => {
