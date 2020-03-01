@@ -40,14 +40,6 @@ const Li = ({ id, title, inner = [], level }) => {
 
 export const init = () => {
   /* eslint-env browser */
-  // const findAllLis = (li) => {
-  //   const all = []
-  //   while(li.parentElement && li.parentElement.parentElement && li.parentElement.parentElement.getAttribute('data-heading')) {
-  //     li = li.parentElement.parentElement
-  //     all.push(li)
-  //   }
-  //   return all
-  // }
   const ents = [...document.querySelectorAll('div[data-section]')]
 
   if (ents.length) {
@@ -63,7 +55,7 @@ export const init = () => {
           li.classList.remove('Active')
         }
       })
-    }, {  }) // rootMargin: `${-window.innerHeight + 1}px`
+    }, {  })
 
     ents.forEach((el) => {
       io.observe(el)

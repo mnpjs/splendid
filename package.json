@@ -5,7 +5,7 @@
   "scripts": {
     "t": "zoroaster -a",
     "test": "yarn t test/spec test/mask",
-    "doc": "NODE_DEBUG=doc doc -o README.md",
+    "doc": "doc -o README.md -d",
     "splendid": "splendid",
     "prod": "splendid -s",
     "dev": "splendid -s -e dev",

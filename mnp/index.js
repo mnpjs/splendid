@@ -1,6 +1,7 @@
 import { parse } from 'url'
 import fonts from './fonts'
 import installPotrace from './potrace'
+import help from './help'
 
 const font = fonts[Math.floor(Math.random() * fonts.length)]
 
@@ -19,51 +20,10 @@ export default {
         writeFileSync('docs/CNAME', host)
       },
     },
-    keepHelp: {
-      text: 'Keep help',
-      confirm: true,
-      async afterQuestions({ updateFiles, removeFiles, rm }, keep) {
-        if (keep) await updateFiles([
-          {
-            re: /<!-- help: /gm,
-            replacement() {
-              this.debug('Updating help in %s', this.path)
-              return '<!-- '
-            },
-          },
-        ], { extensions: ['html', 'md'] })
-        else {
-          await updateFiles([
-            {
-              re: /^ *<!-- help: [\s\S]+? -->\r?\n/gm,
-              replacement() {
-                this.debug('Removing help from %s', this.path)
-                return ''
-              },
-            },
-          ], { extensions: ['html', 'md'] })
-          await updateFiles([
-            {
-              re: /\n\/\/ start help[\s\S]+?\/\/ end help(\r?\n)?/gm,
-              replacement() { return '' },
-            },
-          ], { file: 'pages/index.js' })
-          await updateFiles([
-            {
-              re: /, '..\/help\/.+?'/gm,
-              replacement() { return '' },
-            },
-          ], { file: 'splendid/index.js' })
-          removeFiles(/splendid\/.*?\/README\.md$/)
-          removeFiles(/pages\/README\.md$/)
-          await rm('splendid/comps/help')
-          await rm('help')
-        }
-      },
-    },
+    keepHelp: help,
   },
   async afterInit({ org, name, URL, keepHelp }, api) {
-    const { updateFiles, github, loading, renameFile, initManager } = api
+    const { updateFiles, github, loading, renameFile, initManager, warn } = api
 
     await initManager()
 
@@ -103,6 +63,22 @@ export default {
     ] })
     await installPotrace(api)
     await loading('Fetching splash', splash(api))
+    try {
+      await loading('Adding Webmaster Console ping webhook', async () => {
+        await github.request({
+          method: 'POST',
+          endpoint: `/repos/${org}/${name}/hooks`,
+          data: {
+            config: {
+              url: `http://www.google.com/ping?sitemap=${URL}/sitemap.xml`,
+            },
+            events: ['page_build'],
+          },
+        })
+      })
+    } catch (err) {
+      warn(err.message)
+    }
   },
 }
 
